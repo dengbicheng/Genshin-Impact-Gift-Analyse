@@ -33,15 +33,13 @@ class MysqlDatabase:
             records = [(i['uid'], i['time'], i['name'], i['item_type'], i['rank_type'], i['pool_type']) for i in sj]
             # 使用 executemany() 执行 SQL
             # executemany 方法用于一次性插入多个记录，可以减少与数据库的交互次数，提高效率。
-            self.cursor.executemany(sql, records)
 
+            self.cursor.executemany(sql, records)
         print('插入完毕')
 
         # 提交到数据库执行
         self.db.commit()
+
         # 关闭数据库连接
         self.db.close()
         print('数据库已关闭')
-
-        # 查询用户所有抽卡记录语句
-        # 下面代码并没有调用
