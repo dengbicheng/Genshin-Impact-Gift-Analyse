@@ -45,28 +45,3 @@ class MysqlDatabase:
 
         # 查询用户所有抽卡记录语句
         # 下面代码并没有调用
-
-    def get_database(self, inquier):
-        # 查询record表中uid为...的所有字段
-        sql = """
-                SELECT *
-                FROM record
-                WHERE uid = %s
-                """
-        # 提交语句
-        self.cursor.execute(sql, (str(inquier),))
-        # 拿取数据库数据
-        data = self.cursor.fetchall()
-        # 返回长度
-        # length = len(data)
-        return data
-        # for i in data:
-        #     uid = i[1]  # 用户uid
-        #     grab_time = i[2]  # 抽卡时间
-        #     goods_name = i[3]  # 奖品名称
-        #     item_name = i[4]  # 奖品类型
-        #     rank_type = i[5]  # 奖品等级
-        #     pool_type = i[6]  # 卡池信息
-        #     upload_time = i[7]  # 上传数据库时间
-
-        # print(uid, grab_name, goods_name, item_name, rank_type, pool_type, upload_time)
