@@ -1,5 +1,4 @@
 import threading
-import time
 from GenshinImpact import GenshinImpact
 
 

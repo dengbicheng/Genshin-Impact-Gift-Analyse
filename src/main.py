@@ -62,11 +62,12 @@ if __name__ == '__main__':
         choose = choose.upper()
 
         if choose == 'A':
-            singleThread(url)
+            time = singleThread(url)
+            print('运行时间为：', time)
             break
         elif choose == 'B':
-            multiThreading(url)
+            time = multiThreading(url)
+            print('运行时间：', time)
             break
         else:
             print('输入有误，请重新输入！')
-
