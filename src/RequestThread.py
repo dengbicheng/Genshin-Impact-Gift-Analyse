@@ -17,26 +17,3 @@ class RequestThread(threading.Thread):
         genshin_impact = GenshinImpact(self.url, self.gacha_type, save_data=self.save_data,
                                        up_database=self.up_database, wait=self.wait)
         genshin_impact.requestData()
-
-
-if __name__ == '__main__':
-    start = time.time()
-    url = input("输入你要分析的链接：")
-    # 创建线程对象
-    thread_a = RequestThread(url, 301, save_data=True)
-    thread_b = RequestThread(url, 200, save_data=True)
-    thread_c = RequestThread(url, 302, save_data=True)
-
-    # 启动线程
-    thread_a.start()
-    thread_b.start()
-    thread_c.start()
-
-    # 等待所有线程完成
-    thread_a.join()
-    thread_b.join()
-    thread_c.join()
-
-    print("耗时：", time.time() - start)
-
-    # 多线程28秒这里是我的测试数据wait为1.5

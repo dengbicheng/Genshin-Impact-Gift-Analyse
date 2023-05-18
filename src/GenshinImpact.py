@@ -80,20 +80,3 @@ class GenshinImpact:
     def uploading(self):
         data = MysqlDatabase()
         data.insert_data(self.arr)
-
-
-if __name__ == '__main__':
-    start = time.time()
-
-    url = input("输入你要分析的链接：")
-    # 单线程
-    a = GenshinImpact(url, 301, save_data=True)
-    a.requestData()
-    b = GenshinImpact(url, 200, save_data=True)
-    b.requestData()
-    c = GenshinImpact(url, 302, save_data=True)
-    c.requestData()
-
-    print("耗时：", time.time() - start)
-
-    # 单线程爬取耗时38秒这里是我的测试数据wait为0.2
